@@ -1,0 +1,134 @@
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  src: url("fonts/MaterialSymbolsOutlined.woff2") format("woff");
+}
+
+.material-icons {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+:root {
+  --primary-bg-color: #3c3c3c;
+  --secondary-bg-color: #282828;
+  --primary-border-color: rgb(94 94 94);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--primary-bg-color);
+}
+
+/******************/
+/** MENU STYLING **/
+/******************/
+.menu {
+  margin-right: -1px;
+  background-color: var(--secondary-bg-color);
+  width: 200px;
+  border-right: 1px solid var(--primary-border-color);
+  height: 100vh;
+}
+
+.menu ul:first-child {
+  border: none;
+  position: relative;
+}
+
+.menu:hover ul {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0);
+  padding-left: 5px;
+  z-index: 1;
+}
+
+.menu ul.active {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu ul > li {
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+  height: 1.5rem;
+  font-size: 13px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.menu ul > li::before {
+  content: "";
+  height: 1.5rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.menu ul > li:hover::before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu ul > li.active::before {
+  background-color: blue;
+  border: 1px solid lightblue;
+  opacity: 0.5;
+  right: -1px;
+}
+
+.menu ul > li.active-within::before {
+  border: 1px solid blue;
+}
+
+.menu ul > li > i {
+  font-size: 16px;
+  margin: 0 4px 0 -3px;
+}
+
+.menu ul > li > i.drop-icon {
+  font-size: 23px;
+  font-weight: 100;
+  margin: 0 0 0 -8px;
+}
+
+.menu ul > li > i.drop-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.menu ul > li:has(.collapsed) + ul {
+  display: none;
+}
+
+.menu ul > li > span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
